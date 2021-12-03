@@ -24,13 +24,12 @@ class UserListViewModel {
     }
     
     func fetchUserList() {
-        NetworkingClient.shared.execute(postURL) { result, error in
-            if let error = error {
-                print(error)
-            } else if let result = result {
-                print(result)
-            } else {
-                print("fail")
+        NetworkingClient.shared.requestPhotos(query: "cat") { result in
+            switch result {
+            case .success(let photos):
+                print(photos)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

@@ -13,3 +13,15 @@ struct User {
     let title: String
     let body: String
 }
+
+struct Photo: Codable {
+    
+}
+
+extension Photo {
+    struct NetworkResult {
+        var total: Int
+        var total_pages: Int
+        var result: [Photo]
+    }
+}

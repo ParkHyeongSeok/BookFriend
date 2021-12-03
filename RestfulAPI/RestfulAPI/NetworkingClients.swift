@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+enum API {
+    static let BASE_URL = "https://api.unsplash.com/"
+    static let CLIENT_ID = "Qi4G9qPq4OGMycRtl3aHLlZNmCO99slGa3C9MDkj6rU"
+}
+
 class NetworkingClient {
     static let shared = NetworkingClient()
     
@@ -33,6 +38,33 @@ class NetworkingClient {
                     completion([jsonDict], nil)
                 }
             }
+    }
+    
+    func requestPhotos(query: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.unsplash.com"
+        components.path = "/search/photos"
+        
+        guard let url = components.url else {
+            // release 모드에서는 오류 출력 x
+            preconditionFailure("Failed to construct URL")
+        }
+        
+        let queryParameter = [
+            "query": query,
+            "client_id": API.CLIENT_ID
+        ]
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: queryParameter)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                debugPrint(response)
+            }
+        
     }
     
     
