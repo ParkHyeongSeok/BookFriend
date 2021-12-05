@@ -9,25 +9,31 @@ import XCTest
 @testable import BookFriend
 
 class BookFriendTests: XCTestCase {
+    
+    private let BASE_URL = "https://openapi.naver.com/v1/search/blog.json"
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_makeURLwithComponents() {
+        var components = URLComponents(string: BASE_URL)
+        let catQuery = URLQueryItem(name: "query", value: "cat")
+        components?.queryItems = [catQuery]
+        guard let url = components?.url else {
+            XCTFail("failed to convert url")
+            return
+        }
+        XCTAssertEqual(url.absoluteString, "https://openapi.naver.com/v1/search/blog.json?query=cat")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testRequest_searchBooksAndcompletionBooks() {
+        let exp = expectation(description: "wait request and response Naver server")
+        let networkManager = NetworkManager()
+        networkManager.requestBooks(query: "life") { result in
+            result.forEach { book in
+                print(book.title)
+            }
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 10) { _ in
+            
         }
     }
-
 }
