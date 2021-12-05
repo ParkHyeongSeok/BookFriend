@@ -28,7 +28,8 @@ class BookFriendTests: XCTestCase {
         let networkManager = NetworkManager()
         networkManager.requestBooks(query: "life") { result in
             result.forEach { book in
-                print(book.title)
+                print(book.author)
+                print(book.image)
             }
             exp.fulfill()
         }

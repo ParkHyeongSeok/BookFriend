@@ -42,7 +42,7 @@ class NetworkManager {
     
     private func composedURLRequest(query: String, httpMethod: HTTPMETHOD?, headers: [HTTPHEADER]?) -> URLRequest? {
         
-        let BASE_URL = "https://openapi.naver.com/v1/search/blog.json"
+        let BASE_URL = "https://openapi.naver.com/v1/search/book.json"
         
         var components = URLComponents(string: BASE_URL)
         let newQuery = URLQueryItem(name: "query", value: query)
