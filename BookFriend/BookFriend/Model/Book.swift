@@ -14,3 +14,9 @@ struct Book: Codable {
     let author: String?
     let description: String
 }
+
+extension Book: Equatable {
+    static func == (rhs: Book, lhs: Book) -> Bool {
+        return rhs.title == lhs.title
+    }
+}

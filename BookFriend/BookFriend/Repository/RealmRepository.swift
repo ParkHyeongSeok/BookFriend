@@ -7,22 +7,22 @@
 
 import Foundation
 
-class RealmRepository: RepositoryType {
+class RealmRepository: RealmRepositoryType {
     
     func create(completion: @escaping RealmResult) {
-        completion(.success(.success(true)))
+        completion(.success(.data))
     }
     
     func read(completion: @escaping RealmResult) {
-        completion(.success(.data([])))
+        completion(.success(.data))
     }
     
-    func delete(with bookID: String, completion: @escaping RealmResult) {
-        completion(.success(.success(true)))
+    func delete(bookID: String, completion: @escaping RealmResult) {
+        completion(.success(.data))
     }
     
-    func update(to bookID: String, completion: @escaping RealmResult) {
-        completion(.success(.success(true)))
+    func update(bookID: String, completion: @escaping RealmResult) {
+        completion(.success(.data))
     }
     
 }
