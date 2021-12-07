@@ -16,14 +16,15 @@ class BookListReactor: Reactor {
         case inputQuery(String)
         case searchButtonClicked
         case cancelButtonClicked
-        case deleteQueryList
+        case deleteQueryList(String)
     }
     
     enum Mutation {
         case setLoading(Bool)
         case setBooks([Book])
-        case setQueryList([String])
+        case setQueryList(String)
         case setQuery(String)
+        case deleteQuery(String)
     }
     
     struct State {
@@ -49,13 +50,12 @@ class BookListReactor: Reactor {
             let query = self.currentState.query
             return Observable.concat([
                 Observable.just(.setLoading(true)),
+                .just(Mutation.setQueryList(query)),
                 self.search(query: query).map { Mutation.setBooks($0) },
                 Observable.just(.setLoading(false))
             ])
-        case .deleteQueryList:
-            let query = self.currentState.query
-            provider.userDefaultRepository.delete(query: query, completion: { _ in })
-            return .empty()
+        case .deleteQueryList(let query):
+            return .just(Mutation.deleteQuery(query))
         case .cancelButtonClicked:
             return Observable.concat([
                 .just(Mutation.setQuery("")),
@@ -73,24 +73,25 @@ class BookListReactor: Reactor {
             newState.query = query
         case .setBooks(let books):
             newState.books = books
-        case .setQueryList(let queryList):
-            newState.queryList = queryList
+        case .setQueryList(let query):
+            newState.queryList.append(query)
+        case .deleteQuery(let query):
+            if let index = self.currentState.queryList.firstIndex(of: query) {
+                newState.queryList.remove(at: index)
+            }
         }
         return newState
     }
     
     private func search(query: String) -> Observable<[Book]> {
         return Observable.create { (observer) -> Disposable in
-            self.provider.userDefaultRepository.create(query: query) { result in
-                switch result {
-                case .success(_):
-                    self.provider.networkManager.requestBooks(query: query) { books in
-                        observer.onNext(books)
-                        observer.onCompleted()
-                    }
-                case .failure(let error):
-                    observer.onError(error)
+            self.provider.networkManager.requestBooks(query: query) { books in
+                guard !books.isEmpty else {
+                    observer.onError(NSError(domain: "search", code: 400, userInfo: nil))
+                    return
                 }
+                observer.onNext(books)
+                observer.onCompleted()
             }
             return Disposables.create()
         }

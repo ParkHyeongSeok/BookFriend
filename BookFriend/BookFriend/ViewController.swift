@@ -18,7 +18,6 @@ class ViewController: UIViewController, StoryboardView {
         sc.searchBar.placeholder = "검색어를 입력해 주세요."
         sc.hidesNavigationBarDuringPresentation = true
         sc.automaticallyShowsCancelButton = true
-        sc.obscuresBackgroundDuringPresentation = true
         return sc
     }()
     
@@ -29,10 +28,13 @@ class ViewController: UIViewController, StoryboardView {
     }()
     
     private let collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset.left = 15
+        layout.sectionInset.right = 15
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(QueryCollectionViewCell.self, forCellWithReuseIdentifier: QueryCollectionViewCell.identifier)
+        cv.backgroundColor = .systemBackground
         return cv
     }()
     
@@ -77,6 +79,14 @@ class ViewController: UIViewController, StoryboardView {
             })
             .disposed(by: disposeBag)
         
+        reactor.state.map { $0.queryList }
+            .bind(to: collectionView.rx.items(
+                    cellIdentifier: QueryCollectionViewCell.identifier,
+                    cellType: QueryCollectionViewCell.self)) { index, item, cell in
+                cell.updateUI(query: item)
+            }
+            .disposed(by: disposeBag)
+        
         Observable.zip(
             tableView.rx.itemSelected,
             tableView.rx.modelSelected(Book.self))
@@ -84,6 +94,16 @@ class ViewController: UIViewController, StoryboardView {
                 self.tableView.deselectRow(at: indexPath, animated: false)
                 let sv = SFSafariViewController(url: book.link)
                 self.present(sv, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+        
+        Observable.zip(
+            collectionView.rx.itemSelected,
+            collectionView.rx.modelSelected(String.self))
+            .bind { [unowned self] indexPath, query in
+                self.collectionView.deselectItem(at: indexPath, animated: false)
+                reactor.action.onNext(.inputQuery(query))
+                reactor.action.onNext(.searchButtonClicked)
             }
             .disposed(by: disposeBag)
         
@@ -105,6 +125,9 @@ class ViewController: UIViewController, StoryboardView {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
+        collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
     }
 }
 
@@ -114,7 +137,15 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 45
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let query = reactor?.currentState.queryList[indexPath.item] else { return .zero }
+        let cellSize = QueryCollectionViewCell.fittingSize(availableHeight: 30, query: query)
+        return cellSize
     }
 }
 

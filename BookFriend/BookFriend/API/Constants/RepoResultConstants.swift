@@ -14,11 +14,3 @@ enum RealmSuccess {
 enum RealmError: Error {
     case none
 }
-
-enum UserDefaultSuccess {
-    case data
-}
-
-enum UserDefaultError: Error {
-    case none
-}

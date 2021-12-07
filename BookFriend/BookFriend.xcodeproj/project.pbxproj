@@ -26,9 +26,7 @@
 		24C2829A275DBA9D0091A63A /* NetworkManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28299275DBA9D0091A63A /* NetworkManagerType.swift */; };
 		24C282B8275DBB950091A63A /* ProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282B7275DBB950091A63A /* ProviderProtocol.swift */; };
 		24C282C0275DBD5C0091A63A /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282BF275DBD5C0091A63A /* Provider.swift */; };
-		24C282CB275DD6FE0091A63A /* UserDefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282CA275DD6FE0091A63A /* UserDefaultRepository.swift */; };
 		24C282D0275DD9910091A63A /* RealmRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282CF275DD9910091A63A /* RealmRepositoryType.swift */; };
-		24C282D5275DD9A20091A63A /* UserDefaultRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282D4275DD9A20091A63A /* UserDefaultRepositoryType.swift */; };
 		24C282E3275DE7000091A63A /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282E2275DE7000091A63A /* BookListTableViewCell.swift */; };
 		24C282F5275F27670091A63A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282F4275F27660091A63A /* String+Extension.swift */; };
 		24C282FA275F332C0091A63A /* QueryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282F9275F332C0091A63A /* QueryCollectionViewCell.swift */; };
@@ -81,9 +79,7 @@
 		24C28299275DBA9D0091A63A /* NetworkManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerType.swift; sourceTree = "<group>"; };
 		24C282B7275DBB950091A63A /* ProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderProtocol.swift; sourceTree = "<group>"; };
 		24C282BF275DBD5C0091A63A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		24C282CA275DD6FE0091A63A /* UserDefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultRepository.swift; sourceTree = "<group>"; };
 		24C282CF275DD9910091A63A /* RealmRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepositoryType.swift; sourceTree = "<group>"; };
-		24C282D4275DD9A20091A63A /* UserDefaultRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultRepositoryType.swift; sourceTree = "<group>"; };
 		24C282E2275DE7000091A63A /* BookListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
 		24C282F4275F27660091A63A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		24C282F9275F332C0091A63A /* QueryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -208,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				24C2825B275C8ED00091A63A /* RealmRepository.swift */,
-				24C282CA275DD6FE0091A63A /* UserDefaultRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -247,7 +242,6 @@
 				24C282B7275DBB950091A63A /* ProviderProtocol.swift */,
 				24C28299275DBA9D0091A63A /* NetworkManagerType.swift */,
 				24C282CF275DD9910091A63A /* RealmRepositoryType.swift */,
-				24C282D4275DD9A20091A63A /* UserDefaultRepositoryType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -531,7 +525,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C282D5275DD9A20091A63A /* UserDefaultRepositoryType.swift in Sources */,
 				24C282FA275F332C0091A63A /* QueryCollectionViewCell.swift in Sources */,
 				24C2829A275DBA9D0091A63A /* NetworkManagerType.swift in Sources */,
 				24C2824A275C8D2D0091A63A /* Book.swift in Sources */,
@@ -544,7 +537,6 @@
 				24C28283275DB6DF0091A63A /* RepoResultConstants.swift in Sources */,
 				24C28207275C88D60091A63A /* AppDelegate.swift in Sources */,
 				24C28209275C88D60091A63A /* SceneDelegate.swift in Sources */,
-				24C282CB275DD6FE0091A63A /* UserDefaultRepository.swift in Sources */,
 				24C28278275CEE6F0091A63A /* NetworkModel.swift in Sources */,
 				24C282D0275DD9910091A63A /* RealmRepositoryType.swift in Sources */,
 				24C2828A275DB93C0091A63A /* Reactive+Extension.swift in Sources */,

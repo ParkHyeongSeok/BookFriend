@@ -9,6 +9,5 @@ import Foundation
 
 protocol ProviderProtocol {
     var realmRepository: RealmRepositoryType { get }
-    var userDefaultRepository: UserDefaultRepositoryType { get }
     var networkManager: NetworkManagerType { get }
 }
