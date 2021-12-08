@@ -11,6 +11,8 @@ import XCTest
 class BookFriendTests: XCTestCase {
     
     private let BASE_URL = "https://openapi.naver.com/v1/search/blog.json"
+    
+    var networkManager: NetworkManagerType!
 
     func test_makeURLwithComponents() {
         var components = URLComponents(string: BASE_URL)
@@ -26,9 +28,10 @@ class BookFriendTests: XCTestCase {
     func testRequest_searchBooksAndcompletionBooks() {
         let exp = expectation(description: "wait request and response Naver server")
         let networkManager = NetworkManager()
-        networkManager.requestBooks(query: "life") { result in
+        networkManager.request(books: "life") { result in
             result.forEach { book in
-                print(book.title)
+                print(book.author)
+                print(book.image)
             }
             exp.fulfill()
         }

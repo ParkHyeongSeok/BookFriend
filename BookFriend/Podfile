@@ -6,6 +6,7 @@ def pods
  pod 'RxCocoa'
  pod 'ReactorKit'
  pod 'Alamofire'
+ pod 'Kingfisher'
 end
 
 target 'BookFriend' do

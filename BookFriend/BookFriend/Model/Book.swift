@@ -9,12 +9,14 @@ import Foundation
 
 struct Book: Codable {
     let title: String
-    
-//    enum CodingKeys: String, CodingKey {
-//        case title
-//        case link
-//        case publisher
-//        case description
-//        case image
-//    }
+    let link: URL
+    let image: URL?
+    let author: String?
+    let description: String
+}
+
+extension Book: Equatable {
+    static func == (rhs: Book, lhs: Book) -> Bool {
+        return rhs.title == lhs.title
+    }
 }
