@@ -9,9 +9,10 @@ import Foundation
 
 class NetworkManager: NetworkManagerType {
     
-    private var session : URLSession {
-        let config = URLSessionConfiguration.default
-        return URLSession(configuration: config)
+    let urlSession: URLSessionType
+    
+    init(urlSession: URLSessionType) {
+        self.urlSession = urlSession
     }
     
     func requestBooks(query: String, completion: @escaping ([Book]) -> Void) {
@@ -25,7 +26,7 @@ class NetworkManager: NetworkManagerType {
             return
         }
         
-        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+        let task = self.urlSession.dataTask(with: urlRequest) { (data, response, error) in
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
                   (200..<300).contains(statusCode) else { return }
             if let data = data {
