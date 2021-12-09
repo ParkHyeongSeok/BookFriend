@@ -9,5 +9,5 @@ import Foundation
 
 class Provider: ProviderProtocol {
     var realmRepository: RealmRepositoryType = RealmRepository()
-    var networkManager: NetworkManagerType = NetworkManager()
+    var networkManager: NetworkManagerType = NetworkManager(urlSession: URLSession.shared)
 }
