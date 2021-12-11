@@ -24,7 +24,6 @@ class BookFriendUnitTests: XCTestCase {
     
     func testComponentURLRequest() {
         
-        let BASE_URL = "https://openapi.naver.com/v1/search/book.json"
         let query = "Love"
         let httpMethod: HTTPMETHOD = .get
         let headers: [HTTPHEADER] = [
@@ -32,21 +31,17 @@ class BookFriendUnitTests: XCTestCase {
             HTTPHEADER(key: "client_token", value: "ABCDEF")
         ]
         
-        var components = URLComponents(string: BASE_URL)
-        let newQuery = URLQueryItem(name: "query", value: query)
-        components?.queryItems = [newQuery]
-        guard let url = components?.url else {
-            XCTFail("urlComponents don' have any URL")
-            return }
+        guard let urlRequest = networkManager._composedURLRequest(query: query, httpMethod: httpMethod, headers: headers) else {
+            XCTFail("urlRequest is nil")
+            return
+        }
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.rawValue
-        headers.forEach({ header in
-            urlRequest.setValue(header.value, forHTTPHeaderField: header.key)
-        })
+        XCTAssertEqual(
+            urlRequest.url?.absoluteString,
+            "https://openapi.naver.com/v1/search/book.json?query=Love")
         
-        XCTAssertEqual(urlRequest.url?.absoluteString, nil)
         XCTAssertEqual(urlRequest.httpMethod, "GET")
+        
         guard let firstHeader = urlRequest.allHTTPHeaderFields else {
             XCTFail("urlRequest didn't have headers")
             return
@@ -57,6 +52,10 @@ class BookFriendUnitTests: XCTestCase {
                 "client_id":"12345",
                 "client_token":"ABCDEF"
             ])
+    }
+    
+    func testURLSession_WhenPerformDataTask() {
+        
     }
 }
 

@@ -15,3 +15,7 @@ enum NetworkSuccess {
 enum NetworkFailure {
     case none
 }
+
+enum NetworkError: Error {
+    case failToConvert
+}

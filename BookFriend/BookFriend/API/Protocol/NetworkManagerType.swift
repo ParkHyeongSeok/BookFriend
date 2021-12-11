@@ -9,4 +9,5 @@ import Foundation
 
 protocol NetworkManagerType {
     func requestBooks(query: String, completion: @escaping ([Book]) -> Void)
+    func _composedURLRequest(query: String, httpMethod: HTTPMETHOD?, headers: [HTTPHEADER]?) -> URLRequest?
 }
