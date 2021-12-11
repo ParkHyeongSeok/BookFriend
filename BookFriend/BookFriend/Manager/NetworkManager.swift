@@ -15,7 +15,7 @@ class NetworkManager: NetworkManagerType {
         self.urlSession = urlSession
     }
     
-    func requestBooks(query: String, completion: @escaping ([Book]) -> Void) {
+    func requestBooks(query: String, completion: @escaping (Result<[Book], NetworkError>) -> Void) {
         
         let headers = [
             HTTPHEADER(key: "X-Naver-Client-Id", value: "9FsWrUJnsC8i6U2FRplD"),
@@ -23,19 +23,25 @@ class NetworkManager: NetworkManagerType {
         ]
         
         guard let urlRequest = self._composedURLRequest(query: query, httpMethod: .get, headers: headers) else {
-            return
-        }
+            completion(.failure(NetworkError.emptyRequest))
+            return }
         
         let task = self.urlSession.dataTask(with: urlRequest) { (data, response, error) in
+            
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
-                  (200..<300).contains(statusCode) else { return }
-            if let data = data {
-                do {
-                    let books = try JSONDecoder().decode(NetworkResponse<Book>.self, from: data)
-                    completion(books.items)
-                } catch let error {
-                    print(error)
-                }
+                  (200..<300).contains(statusCode) else {
+                      completion(.failure(NetworkError.statusCode))
+                      return }
+            
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return }
+            
+            do {
+                let books = try JSONDecoder().decode(NetworkResponse<Book>.self, from: data)
+                completion(.success(books.items))
+            } catch {
+                completion(.failure(NetworkError.decodeError))
             }
         }
         task.resume()

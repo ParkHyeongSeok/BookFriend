@@ -16,6 +16,6 @@ struct HTTPHEADER {
     var value: String
 }
 
-struct NetworkResponse<Wrapper: Decodable>: Decodable {
+struct NetworkResponse<Wrapper: Codable>: Codable {
     var items: [Wrapper]
 }

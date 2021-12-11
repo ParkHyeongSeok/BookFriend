@@ -85,13 +85,18 @@ class BookListReactor: Reactor {
     
     private func search(query: String) -> Observable<[Book]> {
         return Observable.create { (observer) -> Disposable in
-            self.provider.networkManager.requestBooks(query: query) { books in
-                guard !books.isEmpty else {
-                    observer.onError(NSError(domain: "search", code: 400, userInfo: nil))
-                    return
+            self.provider.networkManager.requestBooks(query: query) { result in
+                switch result {
+                case .success(let books):
+                    guard !books.isEmpty else {
+                        observer.onError(NSError(domain: "search", code: 400, userInfo: nil))
+                        return
+                    }
+                    observer.onNext(books)
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
                 }
-                observer.onNext(books)
-                observer.onCompleted()
             }
             return Disposables.create()
         }

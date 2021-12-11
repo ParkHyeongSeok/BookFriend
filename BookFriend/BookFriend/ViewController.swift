@@ -92,7 +92,8 @@ class ViewController: UIViewController, StoryboardView {
             tableView.rx.modelSelected(Book.self))
             .bind { [unowned self] (indexPath, book) in
                 self.tableView.deselectRow(at: indexPath, animated: false)
-                let sv = SFSafariViewController(url: book.link)
+                guard let url = book.link else { return }
+                let sv = SFSafariViewController(url: url)
                 self.present(sv, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
