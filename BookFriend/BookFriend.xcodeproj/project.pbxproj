@@ -13,7 +13,6 @@
 		24C2820E275C88D60091A63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C2820C275C88D60091A63A /* Main.storyboard */; };
 		24C28210275C88E00091A63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C2820F275C88E00091A63A /* Assets.xcassets */; };
 		24C28213275C88E00091A63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C28211275C88E00091A63A /* LaunchScreen.storyboard */; };
-		24C28229275C88E00091A63A /* BookFriendUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28228275C88E00091A63A /* BookFriendUITests.swift */; };
 		24C2824A275C8D2D0091A63A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28249275C8D2D0091A63A /* Book.swift */; };
 		24C28252275C8E5E0091A63A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28251275C8E5E0091A63A /* NetworkManager.swift */; };
 		24C2825C275C8ED00091A63A /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C2825B275C8ED00091A63A /* RealmRepository.swift */; };
@@ -31,20 +30,12 @@
 		24C282FA275F332C0091A63A /* QueryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C282F9275F332C0091A63A /* QueryCollectionViewCell.swift */; };
 		24C2830827609AAC0091A63A /* BookFriendUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C2830727609AAC0091A63A /* BookFriendUnitTests.swift */; };
 		24C2831027609B030091A63A /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C2830F27609B030091A63A /* URLSessionType.swift */; };
-		4F8F63868B07E7A7192D1B00 /* Pods_BookFriend_BookFriendUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B42BD55C703D35F05D5D41A8 /* Pods_BookFriend_BookFriendUITests.framework */; };
 		9456015E8698BC40E83EB648 /* Pods_BookFriendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8C457AEA4BAF415E167A34 /* Pods_BookFriendTests.framework */; };
 		9BA13EEE48C77FA690CD6DC4 /* Pods_BookFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A123C89EE0464941450B1EA /* Pods_BookFriend.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		24C2821A275C88E00091A63A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24C281FB275C88D50091A63A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 24C28202275C88D60091A63A;
-			remoteInfo = BookFriend;
-		};
-		24C28225275C88E00091A63A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24C281FB275C88D50091A63A /* Project object */;
 			proxyType = 1;
@@ -65,9 +56,6 @@
 		24C28214275C88E00091A63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C28219275C88E00091A63A /* BookFriendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookFriendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C2821F275C88E00091A63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24C28224275C88E00091A63A /* BookFriendUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookFriendUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		24C28228275C88E00091A63A /* BookFriendUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFriendUITests.swift; sourceTree = "<group>"; };
-		24C2822A275C88E00091A63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C28249275C8D2D0091A63A /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		24C28251275C8E5E0091A63A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		24C2825B275C8ED00091A63A /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
@@ -112,14 +100,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24C28221275C88E00091A63A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4F8F63868B07E7A7192D1B00 /* Pods_BookFriend_BookFriendUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -128,7 +108,6 @@
 			children = (
 				24C28205275C88D60091A63A /* BookFriend */,
 				24C2821C275C88E00091A63A /* BookFriendTests */,
-				24C28227275C88E00091A63A /* BookFriendUITests */,
 				24C28204275C88D60091A63A /* Products */,
 				D1D7FF41B09AE706F42FFFE2 /* Pods */,
 				87F201A37551A14ED3BC0E70 /* Frameworks */,
@@ -140,7 +119,6 @@
 			children = (
 				24C28203275C88D60091A63A /* BookFriend.app */,
 				24C28219275C88E00091A63A /* BookFriendTests.xctest */,
-				24C28224275C88E00091A63A /* BookFriendUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,15 +151,6 @@
 				24C2821F275C88E00091A63A /* Info.plist */,
 			);
 			path = BookFriendTests;
-			sourceTree = "<group>";
-		};
-		24C28227275C88E00091A63A /* BookFriendUITests */ = {
-			isa = PBXGroup;
-			children = (
-				24C28228275C88E00091A63A /* BookFriendUITests.swift */,
-				24C2822A275C88E00091A63A /* Info.plist */,
-			);
-			path = BookFriendUITests;
 			sourceTree = "<group>";
 		};
 		24C28248275C8D210091A63A /* Model */ = {
@@ -314,26 +283,6 @@
 			productReference = 24C28219275C88E00091A63A /* BookFriendTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		24C28223275C88E00091A63A /* BookFriendUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 24C28233275C88E00091A63A /* Build configuration list for PBXNativeTarget "BookFriendUITests" */;
-			buildPhases = (
-				CC2AD8E0E0D002048A9CFAB3 /* [CP] Check Pods Manifest.lock */,
-				24C28220275C88E00091A63A /* Sources */,
-				24C28221275C88E00091A63A /* Frameworks */,
-				24C28222275C88E00091A63A /* Resources */,
-				5BB857C435A93AB5EA850011 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				24C28226275C88E00091A63A /* PBXTargetDependency */,
-			);
-			name = BookFriendUITests;
-			productName = BookFriendUITests;
-			productReference = 24C28224275C88E00091A63A /* BookFriendUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -349,10 +298,6 @@
 					24C28218275C88E00091A63A = {
 						CreatedOnToolsVersion = 12.4;
 						LastSwiftMigration = 1240;
-						TestTargetID = 24C28202275C88D60091A63A;
-					};
-					24C28223275C88E00091A63A = {
-						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 24C28202275C88D60091A63A;
 					};
 				};
@@ -372,7 +317,6 @@
 			targets = (
 				24C28202275C88D60091A63A /* BookFriend */,
 				24C28218275C88E00091A63A /* BookFriendTests */,
-				24C28223275C88E00091A63A /* BookFriendUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -389,13 +333,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		24C28217275C88E00091A63A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24C28222275C88E00091A63A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -437,23 +374,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookFriendTests/Pods-BookFriendTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5BB857C435A93AB5EA850011 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BookFriend-BookFriendUITests/Pods-BookFriend-BookFriendUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BookFriend-BookFriendUITests/Pods-BookFriend-BookFriendUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookFriend-BookFriendUITests/Pods-BookFriend-BookFriendUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		99A96F3E805AD3FF0924A92C /* [CP] Check Pods Manifest.lock */ = {
@@ -500,28 +420,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CC2AD8E0E0D002048A9CFAB3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BookFriend-BookFriendUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -559,14 +457,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24C28220275C88E00091A63A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24C28229275C88E00091A63A /* BookFriendUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -574,11 +464,6 @@
 			isa = PBXTargetDependency;
 			target = 24C28202275C88D60091A63A /* BookFriend */;
 			targetProxy = 24C2821A275C88E00091A63A /* PBXContainerItemProxy */;
-		};
-		24C28226275C88E00091A63A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 24C28202275C88D60091A63A /* BookFriend */;
-			targetProxy = 24C28225275C88E00091A63A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -807,48 +692,6 @@
 			};
 			name = Release;
 		};
-		24C28234275C88E00091A63A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B85735CE01341D8DE5F3304B /* Pods-BookFriend-BookFriendUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MBAJ2NCPU9;
-				INFOPLIST_FILE = BookFriendUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperPaul.BookFriendUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BookFriend;
-			};
-			name = Debug;
-		};
-		24C28235275C88E00091A63A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12EF6E342D40B5B6AE40C47A /* Pods-BookFriend-BookFriendUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MBAJ2NCPU9;
-				INFOPLIST_FILE = BookFriendUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperPaul.BookFriendUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BookFriend;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -875,15 +718,6 @@
 			buildConfigurations = (
 				24C28231275C88E00091A63A /* Debug */,
 				24C28232275C88E00091A63A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		24C28233275C88E00091A63A /* Build configuration list for PBXNativeTarget "BookFriendUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24C28234275C88E00091A63A /* Debug */,
-				24C28235275C88E00091A63A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -54,8 +54,39 @@ class BookFriendUnitTests: XCTestCase {
             ])
     }
     
-    func testURLSession_WhenPerformDataTask() {
+    func testURLSession_WhenPerformDataTask_StatusCodeError() {
+        let expectation = expectation(description: "waiting urlsession")
+        networkManager.requestBooks(query: "Love") { result in
+            switch result {
+            case .success(_):
+                XCTFail("fetch some books")
+            case .failure(let error):
+                expectation.fulfill()
+                XCTAssertEqual(error, NetworkError.statusCode)
+            }
+        }
+        waitForExpectations(timeout: 5.0) { error in
+            print("expectation catched Error : \(String(describing: error))")
+        }
+    }
+    
+    func testURLSession_WhenPerformDataTask_SuccessResponse() {
+        let expectation = expectation(description: "waiting urlsession")
+        self.networkManager = NetworkManager(urlSession: MockURLSession(makeRequestFail: true))
         
+        networkManager.requestBooks(query: "Love") { result in
+            switch result {
+            case .success(let books):
+                expectation.fulfill()
+                XCTAssertNotNil(books)
+                XCTAssertEqual(books.first!.title, "title")
+            case .failure(let error):
+                XCTFail("fetch some books : \(String(describing: error))")
+            }
+        }
+        waitForExpectations(timeout: 5.0) { error in
+            print("expectation catched Error : \(String(describing: error))")
+        }
     }
 }
 
@@ -84,12 +115,15 @@ class MockURLSession: URLSessionType {
                                            headerFields: nil)
         
         let sessionDataTask = MockURLSessionDataTask()
+        let sampleBook = Book(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description")
+        let response = NetworkResponse<Book>(items: [sampleBook])
+        let sampleData = try? JSONEncoder().encode(response)
         
         sessionDataTask.resumDidCall = {
             if self.makeRequestFail {
-                completionHandler(nil, failRange, nil)
+                completionHandler(sampleData, successRange, nil)
             } else {
-                completionHandler(nil, successRange, nil)
+                completionHandler(nil, failRange, NetworkError.statusCode)
             }
         }
         return sessionDataTask
@@ -98,7 +132,6 @@ class MockURLSession: URLSessionType {
 
 class MockURLSessionDataTask: URLSessionDataTask {
     var resumDidCall : (() -> Void)?
-    override init() { }
     override func resume() {
         if let resumDidCall = resumDidCall {
             resumDidCall()

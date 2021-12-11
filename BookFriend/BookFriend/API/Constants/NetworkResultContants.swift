@@ -17,5 +17,8 @@ enum NetworkFailure {
 }
 
 enum NetworkError: Error {
-    case failToConvert
+    case emptyRequest
+    case statusCode
+    case emptyData
+    case decodeError
 }
