@@ -22,7 +22,7 @@ class NetworkManager: NetworkManagerType {
             HTTPHEADER(key: "X-Naver-Client-Secret", value: "mtkUonNIla")
         ]
         
-        guard let urlRequest = self.composedURLRequest(query: query, httpMethod: .get, headers: headers) else {
+        guard let urlRequest = self._composedURLRequest(query: query, httpMethod: .get, headers: headers) else {
             return
         }
         
@@ -41,14 +41,14 @@ class NetworkManager: NetworkManagerType {
         task.resume()
     }
     
-    private func composedURLRequest(query: String, httpMethod: HTTPMETHOD?, headers: [HTTPHEADER]?) -> URLRequest? {
-        
+    func _composedURLRequest(query: String, httpMethod: HTTPMETHOD?, headers: [HTTPHEADER]?) -> URLRequest? {
         let BASE_URL = "https://openapi.naver.com/v1/search/book.json"
-        
         var components = URLComponents(string: BASE_URL)
         let newQuery = URLQueryItem(name: "query", value: query)
         components?.queryItems = [newQuery]
-        guard let url = components?.url else { return nil }
+        guard let url = components?.url else {
+            return nil
+        }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod?.rawValue
