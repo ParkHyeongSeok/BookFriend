@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		034371EB2768A881002DF4D9 /* TestStudyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034371EA2768A881002DF4D9 /* TestStudyExample.swift */; };
+		034371ED2768A89B002DF4D9 /* TestExampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034371EC2768A89B002DF4D9 /* TestExampleModel.swift */; };
 		24C28207275C88D60091A63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28206275C88D60091A63A /* AppDelegate.swift */; };
 		24C28209275C88D60091A63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28208275C88D60091A63A /* SceneDelegate.swift */; };
 		24C2820B275C88D60091A63A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C2820A275C88D60091A63A /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		034371EA2768A881002DF4D9 /* TestStudyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStudyExample.swift; sourceTree = "<group>"; };
+		034371EC2768A89B002DF4D9 /* TestExampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExampleModel.swift; sourceTree = "<group>"; };
 		12EF6E342D40B5B6AE40C47A /* Pods-BookFriend-BookFriendUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookFriend-BookFriendUITests.release.xcconfig"; path = "Target Support Files/Pods-BookFriend-BookFriendUITests/Pods-BookFriend-BookFriendUITests.release.xcconfig"; sourceTree = "<group>"; };
 		24C28203275C88D60091A63A /* BookFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C28206275C88D60091A63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		034371EE2768CCF7002DF4D9 /* TestStudy */ = {
+			isa = PBXGroup;
+			children = (
+				034371EC2768A89B002DF4D9 /* TestExampleModel.swift */,
+			);
+			path = TestStudy;
+			sourceTree = "<group>";
+		};
 		24C281FA275C88D50091A63A = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +140,7 @@
 			children = (
 				24C28206275C88D60091A63A /* AppDelegate.swift */,
 				24C28208275C88D60091A63A /* SceneDelegate.swift */,
+				034371EE2768CCF7002DF4D9 /* TestStudy */,
 				24C28287275DB91F0091A63A /* API */,
 				24C2825A275C8EC00091A63A /* Repository */,
 				24C28256275C8E630091A63A /* Manager */,
@@ -147,6 +160,7 @@
 		24C2821C275C88E00091A63A /* BookFriendTests */ = {
 			isa = PBXGroup;
 			children = (
+				034371EA2768A881002DF4D9 /* TestStudyExample.swift */,
 				24C2830727609AAC0091A63A /* BookFriendUnitTests.swift */,
 				24C2821F275C88E00091A63A /* Info.plist */,
 			);
@@ -453,6 +467,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				034371ED2768A89B002DF4D9 /* TestExampleModel.swift in Sources */,
+				034371EB2768A881002DF4D9 /* TestStudyExample.swift in Sources */,
 				24C2830827609AAC0091A63A /* BookFriendUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
