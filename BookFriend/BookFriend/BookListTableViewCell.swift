@@ -23,8 +23,7 @@ class BookListTableViewCell: UITableViewCell {
     
     func updateUI(book: Book) {
         bookImage.kf.setImage(with: book.image)
-        let titleFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)!
-        bookTitle.attributedText = book.title.htmlEscaped(font: titleFont)
+        bookTitle.text = book.title.htmlEscaped
         let authorFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)!
         bookAuthor.attributedText = book.author?.htmlEscaped(font: authorFont)
         let descriptionFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)!

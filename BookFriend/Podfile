@@ -7,8 +7,6 @@ def pods
  pod 'ReactorKit'
  pod 'Alamofire'
  pod 'Kingfisher'
- pod 'Nimble'
- pod 'Quick'
 end
 
 target 'BookFriend' do
@@ -22,10 +20,4 @@ target 'BookFriend' do
     # Pods for testing
     pods
   end
-
-  target 'BookFriendUITests' do
-    # Pods for testing
-    pods
-  end
-
 end

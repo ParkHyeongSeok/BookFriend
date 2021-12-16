@@ -11,7 +11,7 @@ import RxSwift
 class QueryCollectionViewCell: UICollectionViewCell {
     static let identifier = "QueryCollectionViewCell"
    
-    private let queryLabel: UILabel = {
+    let queryLabel: UILabel = {
        let label = UILabel()
         label.text = "시선으로부터"
         label.textAlignment = .center

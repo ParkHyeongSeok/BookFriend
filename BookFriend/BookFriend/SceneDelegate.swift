@@ -12,12 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
         guard let rootViewController = window?.rootViewController as? UINavigationController else { return }
-        guard let vc = rootViewController.viewControllers.first as? ViewController else { return }
-        let provider = Provider()
-        vc.reactor = BookListReactor(provider: provider)
-        
+        guard let vc = rootViewController.viewControllers.first as? BookListViewController else { return }
+        let manager = NetworkManager(urlSession: URLSession.shared)
+        vc.reactor = BookListReactor(manager: manager)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
