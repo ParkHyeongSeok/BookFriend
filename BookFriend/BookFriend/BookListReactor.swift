@@ -14,11 +14,11 @@ class BookListReactor: Reactor {
     
     enum Action {
         case inputQuery(String)
-        case searchButtonClicked
+        case searchButtonClicked(String?)
         case cancelButtonClicked
         case deleteQueryList(String)
     }
-    
+
     enum Mutation {
         case setLoading(Bool)
         case setBooks([Book])
@@ -29,16 +29,16 @@ class BookListReactor: Reactor {
     
     struct State {
         var books = [Book]()
-        var queryList = [String]()
+        var queryList = ["love"]
         var isLoading = false
         var query = ""
     }
     
     let initialState: State
-    let provider: ProviderProtocol
+    let manager: NetworkManagerType
     
-    init(provider: ProviderProtocol) {
-        self.provider = provider
+    init(manager: NetworkManagerType) {
+        self.manager = manager
         self.initialState = State()
     }
     
@@ -46,12 +46,12 @@ class BookListReactor: Reactor {
         switch action {
         case .inputQuery(let query):
             return .just(Mutation.setQuery(query))
-        case .searchButtonClicked:
+        case .searchButtonClicked(let originQuery):
             let query = self.currentState.query
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                .just(Mutation.setQueryList(query)),
-                self.search(query: query).map { Mutation.setBooks($0) },
+                .just(Mutation.setQueryList(originQuery ?? query)),
+                self.search(query: originQuery ?? query).map { Mutation.setBooks($0) },
                 Observable.just(.setLoading(false))
             ])
         case .deleteQueryList(let query):
@@ -74,7 +74,9 @@ class BookListReactor: Reactor {
         case .setBooks(let books):
             newState.books = books
         case .setQueryList(let query):
-            newState.queryList.append(query)
+            if !newState.queryList.contains(query) {
+                newState.queryList.append(query)
+            }
         case .deleteQuery(let query):
             if let index = self.currentState.queryList.firstIndex(of: query) {
                 newState.queryList.remove(at: index)
@@ -85,7 +87,13 @@ class BookListReactor: Reactor {
     
     private func search(query: String) -> Observable<[Book]> {
         return Observable.create { (observer) -> Disposable in
-            self.provider.networkManager.requestBooks(query: query) { result in
+            
+            guard let urlRequest = self.manager._composedURLRequest(query: query, httpMethod: .get) else {
+                observer.onError(NetworkError.urlRequest)
+                return Disposables.create()
+            }
+            
+            self.manager.requestBooks(with: urlRequest) { result in
                 switch result {
                 case .success(let books):
                     guard !books.isEmpty else {

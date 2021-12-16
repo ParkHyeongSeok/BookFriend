@@ -8,12 +8,7 @@
 import Foundation
 
 enum NetworkSuccess {
-    case result(String)
     case data([Book])
-}
-
-enum NetworkFailure {
-    case none
 }
 
 enum NetworkError: Error {
@@ -21,4 +16,5 @@ enum NetworkError: Error {
     case statusCode
     case emptyData
     case decodeError
+    case urlRequest
 }

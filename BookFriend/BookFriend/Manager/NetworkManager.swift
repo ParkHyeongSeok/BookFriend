@@ -15,17 +15,7 @@ class NetworkManager: NetworkManagerType {
         self.urlSession = urlSession
     }
     
-    func requestBooks(query: String, completion: @escaping (Result<[Book], NetworkError>) -> Void) {
-        
-        let headers = [
-            HTTPHEADER(key: "X-Naver-Client-Id", value: "9FsWrUJnsC8i6U2FRplD"),
-            HTTPHEADER(key: "X-Naver-Client-Secret", value: "mtkUonNIla")
-        ]
-        
-        guard let urlRequest = self._composedURLRequest(query: query, httpMethod: .get, headers: headers) else {
-            completion(.failure(NetworkError.emptyRequest))
-            return }
-        
+    func requestBooks(with urlRequest: URLRequest, completion: @escaping (Result<[Book], NetworkError>) -> Void) {
         let task = self.urlSession.dataTask(with: urlRequest) { (data, response, error) in
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
@@ -47,8 +37,15 @@ class NetworkManager: NetworkManagerType {
         task.resume()
     }
     
-    func _composedURLRequest(query: String, httpMethod: HTTPMETHOD?, headers: [HTTPHEADER]?) -> URLRequest? {
+    func _composedURLRequest(query: String, httpMethod: HTTPMETHOD?) -> URLRequest? {
+        
         let BASE_URL = "https://openapi.naver.com/v1/search/book.json"
+        
+        let headers = [
+            HTTPHEADER(key: "X-Naver-Client-Id", value: "9FsWrUJnsC8i6U2FRplD"),
+            HTTPHEADER(key: "X-Naver-Client-Secret", value: "mtkUonNIla")
+        ]
+        
         var components = URLComponents(string: BASE_URL)
         let newQuery = URLQueryItem(name: "query", value: query)
         components?.queryItems = [newQuery]
@@ -58,7 +55,7 @@ class NetworkManager: NetworkManagerType {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod?.rawValue
-        headers?.forEach({ header in
+        headers.forEach({ header in
             urlRequest.setValue(header.value, forHTTPHeaderField: header.key)
         })
         return urlRequest
