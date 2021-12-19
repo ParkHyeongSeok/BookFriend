@@ -62,7 +62,20 @@ class BookListViewController: UIViewController, StoryboardView {
         activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDisappear")
+        
+    }
+    
     func bind(reactor: BookListReactor) {
+        
+        tableView.rx.sentMessage(#selector(tableView.reloadData))
+//            .debounce(.milliseconds(100), scheduler: MainScheduler.asyncInstance)
+            .bind(onNext: { _ in
+                print("before reload")
+            })
+            .disposed(by: disposeBag)
         
         reactor.state.map { $0.books }
             .bind(to: tableView.rx.items(cellIdentifier: BookListTableViewCell.identifier, cellType: BookListTableViewCell.self)) { index, item, cell in
@@ -88,11 +101,16 @@ class BookListViewController: UIViewController, StoryboardView {
             tableView.rx.modelSelected(Book.self))
             .bind { [unowned self] (indexPath, book) in
                 self.tableView.deselectRow(at: indexPath, animated: false)
-                guard let url = book.link else { return }
-                let sv = SFSafariViewController(url: url)
-                self.present(sv, animated: true, completion: nil)
+                self.navigateNewPage(book: book) {
+                    reactor.action.onNext(.searchButtonClicked("newQuery"))
+                    self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+                }
             }
             .disposed(by: disposeBag)
+        
+        
+        
+        
         
         Observable.zip(
             collectionView.rx.itemSelected,
@@ -110,7 +128,9 @@ class BookListViewController: UIViewController, StoryboardView {
         
         searchController.searchBar.rx.cancelButtonClicked
             .map { BookListReactor.Action.cancelButtonClicked }
-            .bind(to: reactor.action)
+            .bind(onNext: {
+                reactor.action.onNext(BookListReactor.Action.updateBooks(true))
+            })
             .disposed(by: disposeBag)
         
         searchController.searchBar.rx.searchButtonClicked
@@ -124,6 +144,12 @@ class BookListViewController: UIViewController, StoryboardView {
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
+    }
+    
+    func navigateNewPage(book: Book, completion: (() -> Void)? = nil) {
+        guard let url = book.link else { return }
+        let sv = SFSafariViewController(url: url)
+        self.present(sv, animated: true, completion: completion)
     }
 }
 

@@ -43,13 +43,13 @@ class NetworkManagerUnitTests: XCTestCase {
     // 테스트 목적 : networkManager의 requestBooks 작동 여부 체크
     // URLSession Stub에서 관련 fail(statusCodeError) 여부 조사
     func testURLSession_WhenPerformDataTask_StatusCodeError() {
-        let expectation = expectation(description: "waiting urlsession")
+        let exp = expectation(description: "waiting urlsession")
         self.networkManager.requestBooks(with: urlRequest) { result in
             switch result {
             case .success(_):
                 XCTFail("fetch some books")
             case .failure(let error):
-                expectation.fulfill()
+                exp.fulfill()
                 XCTAssertEqual(error, NetworkError.statusCode)
             }
         }
@@ -60,14 +60,14 @@ class NetworkManagerUnitTests: XCTestCase {
     
     // URLSession Stub에서 관련 fail(emptyDataError) 여부 조사
     func testURLSession_WhenPerformDataTask_DataEmpryError() {
-        let expectation = expectation(description: "waiting urlsession")
+        let exp = expectation(description: "waiting urlsession")
         self.networkManager = NetworkManager(urlSession: StubURLSession(makeRequestFail: false, failStatusCode: false))
         self.networkManager.requestBooks(with: urlRequest) { result in
             switch result {
             case .success(_):
                 XCTFail("fetch some books")
             case .failure(let error):
-                expectation.fulfill()
+                exp.fulfill()
                 XCTAssertEqual(error, NetworkError.emptyData)
             }
         }
@@ -77,13 +77,13 @@ class NetworkManagerUnitTests: XCTestCase {
     }
     
     func testURLSession_WhenPerformDataTask_SuccessResponse() {
-        let expectation = expectation(description: "waiting urlsession")
+        let exp = expectation(description: "waiting urlsession")
         let sampleBook = Book(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description")
         self.networkManager = NetworkManager(urlSession: StubURLSession(makeRequestFail: true, failStatusCode: false))
         self.networkManager.requestBooks(with: urlRequest) { result in
             switch result {
             case .success(let books):
-                expectation.fulfill()
+                exp.fulfill()
                 XCTAssertNotNil(books)
                 XCTAssertEqual(books.first, sampleBook)
             case .failure(let error):

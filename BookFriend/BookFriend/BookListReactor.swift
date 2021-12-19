@@ -17,6 +17,7 @@ class BookListReactor: Reactor {
         case searchButtonClicked(String?)
         case cancelButtonClicked
         case deleteQueryList(String)
+        case updateBooks(Bool)
     }
 
     enum Mutation {
@@ -25,6 +26,7 @@ class BookListReactor: Reactor {
         case setQueryList(String)
         case setQuery(String)
         case deleteQuery(String)
+        case setAction(Bool)
     }
     
     struct State {
@@ -32,6 +34,7 @@ class BookListReactor: Reactor {
         var queryList = ["love"]
         var isLoading = false
         var query = ""
+        var action = false
     }
     
     let initialState: State
@@ -61,6 +64,8 @@ class BookListReactor: Reactor {
                 .just(Mutation.setQuery("")),
                 .just(Mutation.setLoading(false))
             ])
+        case .updateBooks(let value):
+            return .just(Mutation.setAction(value))
         }
     }
     
@@ -81,6 +86,8 @@ class BookListReactor: Reactor {
             if let index = self.currentState.queryList.firstIndex(of: query) {
                 newState.queryList.remove(at: index)
             }
+        case .setAction(let value):
+            newState.action = value
         }
         return newState
     }

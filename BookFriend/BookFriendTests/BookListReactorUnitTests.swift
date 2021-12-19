@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import BookFriend
 
 class BookListReactorUnitTests: XCTestCase {
@@ -30,20 +31,29 @@ class BookListReactorUnitTests: XCTestCase {
         bookVC = nil
     }
     
+    // 사용자 인터랙션이 발생했을 때 Action이 상태로 잘 전달되는지
+    // searchButton Test
+    func testReactorAction_WhenSearchButtonClicked_ThenMutationTakeSearch() {
+        
+    }
+    
+    // setQuery Test
+    func testReactorAction_WhenTypingQuery_ThenMutationTakeQuery() {
+        
+    }
+
     // 테스트 내용 : 리액터의 상태가 바뀌엇을 때 뷰의 컴포넌트 속성이 잘 변경되는지 여부
-    // 1) books: [Book]
-    // 2) queryList: [String]
-    // 3) isLoading:Bool
+    // 1) isLoading: Bool
     func testReactorState_isLoading() {
         reactor.stub.state.value = BookListReactor.State(books: [], queryList: [], isLoading: true, query: "")
-        XCTAssertEqual(bookVC.activityView.isAnimating, true)
+        expect(true).to(equal(bookVC.activityView.isAnimating))
     }
     
     func testReactorState_isNotLoading() {
         reactor.stub.state.value = BookListReactor.State(books: [], queryList: [], isLoading: false, query: "")
-        XCTAssertEqual(bookVC.activityView.isAnimating, false)
+        expect(false).to(equal(bookVC.activityView.isAnimating))
     }
-    
+    // 2) books: [Book]
     func testReactorState_books() {
         let sampleBook = [
             Book(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description"),
@@ -52,28 +62,14 @@ class BookListReactorUnitTests: XCTestCase {
         reactor.stub.state.value = BookListReactor.State(books: sampleBook, queryList: [], isLoading: false, query: "")
         let tableViewCell = bookVC.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! BookListTableViewCell
         XCTAssertEqual(tableViewCell.bookTitle.text, sampleBook.first?.title)
+        expect(sampleBook.first?.title).to(equal(tableViewCell.bookTitle.text))
     }
     
+    // 3) queryList: [String]
     func testReactorState_query() {
         reactor.stub.state.value = BookListReactor.State(books: [], queryList: ["Love"], isLoading: false, query: "")
         let collectionView = bookVC.collectionView
         let collectionViewCell = collectionView.dataSource?.collectionView(collectionView, cellForItemAt: IndexPath(item: 0, section: 0)) as! QueryCollectionViewCell
-        XCTAssertEqual(collectionViewCell.queryLabel.text, "Love")
+        expect("Love").to(equal(collectionViewCell.queryLabel.text))
     }
-    
-    // 사용자 인터랙션이 발생했을 때 Action이 리액터로 전달되는지 여부
-    // searchButton Test
-    func testReactorAction_WhenSearchButtonClicked_ThenMutationTakeSearch() {
-        bookVC.searchController.searchBar.delegate?.searchBarSearchButtonClicked!(bookVC.searchController.searchBar)
-        let action = reactor.stub.actions.last
-    }
-    
-    // setQuery Test
-    func testReactorAction_WhenTypingQuery_ThenMutationTakeQuery() {
-        bookVC.searchController.searchBar.searchTextField.text = "Love"
-        XCTAssertEqual(reactor.currentState.query, "Love")
-    }
-
-    
-
 }
