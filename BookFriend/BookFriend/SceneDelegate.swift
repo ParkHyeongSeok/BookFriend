@@ -6,23 +6,38 @@
 //
 
 import UIKit
+import Swinject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let container = Container()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let rootViewController = window?.rootViewController as? UINavigationController else { return }
         guard let vc = rootViewController.viewControllers.first as? BookListViewController else { return }
+        
         let manager = NetworkManager(urlSession: URLSession.shared)
+        
+        registerContainer()
+        
         vc.reactor = BookListReactor(manager: manager)
+    }
+    
+    func registerContainer() {
+        container.register(URLSessionType.self, name: "real") { _ in
+            return URLSession.shared
+        }
+        container.register(NetworkManager.self) { r in
+            return NetworkManager(urlSession: r.resolve(URLSessionType.self, name: "real")!)
+        }
+        container.register(BookListReactor.self) { r in
+            return BookListReactor(manager: r.resolve(NetworkManager.self)!)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
