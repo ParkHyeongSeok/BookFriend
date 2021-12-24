@@ -2,16 +2,24 @@ PODS:
   - Alamofire (5.4.4)
   - Kingfisher (7.0.0)
   - Nimble (9.2.1)
+  - Pure (1.1.4):
+    - Pure/Core (= 1.1.4)
+  - Pure/Core (1.1.4)
   - Quick (4.0.0)
   - ReactorKit (3.1.0):
     - RxSwift (~> 6.0)
     - WeakMapTable (~> 1.1)
+  - ReusableKit (3.0.0):
+    - ReusableKit/Core (= 3.0.0)
+  - ReusableKit/Core (3.0.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - RxTest (6.2.0):
+    - RxSwift (= 6.2.0)
   - Swinject (2.8.1)
   - WeakMapTable (1.2.0)
 
@@ -19,10 +27,13 @@ DEPENDENCIES:
   - Alamofire
   - Kingfisher
   - Nimble
+  - Pure
   - Quick
   - ReactorKit
+  - ReusableKit
   - RxCocoa
   - RxSwift
+  - RxTest
   - Swinject
 
 SPEC REPOS:
@@ -30,11 +41,14 @@ SPEC REPOS:
     - Alamofire
     - Kingfisher
     - Nimble
+    - Pure
     - Quick
     - ReactorKit
+    - ReusableKit
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxTest
     - Swinject
     - WeakMapTable
 
@@ -42,14 +56,17 @@ SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
+  Pure: 82d6f4438672a41d21ea6fadd126e1466db001c5
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   ReactorKit: a06dd2a5c9339287aedf3dc821cfab6347eca106
+  ReusableKit: e5f853ad4652e411f96b6119b2488afa12929be6
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxTest: 0c692fa672b694373ba86d2b00033595297a2831
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: d046fdc040f709b1fe8cc67f09898d37af46f073
+PODFILE CHECKSUM: 54088aea6408641503e8ca4c846ef52d96aff192
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

@@ -8,6 +8,8 @@ def pods
  pod 'Alamofire'
  pod 'Kingfisher'
  pod 'Swinject'
+ pod 'Pure'
+ pod 'ReusableKit'
 end
 
 target 'BookFriend' do
@@ -22,5 +24,6 @@ target 'BookFriend' do
     pods
     pod 'Nimble'
     pod 'Quick'
+    pod 'RxTest'
   end
 end
