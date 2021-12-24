@@ -1,0 +1,6 @@
+framework module Pure {
+  umbrella header "Pure-umbrella.h"
+
+  export *
+  module * { export * }
+}
