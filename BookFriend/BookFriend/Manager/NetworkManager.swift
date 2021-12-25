@@ -15,7 +15,7 @@ class NetworkManager: NetworkManagerType {
         self.urlSession = urlSession
     }
     
-    func requestBooks(with urlRequest: URLRequest, completion: @escaping (Result<[Book], NetworkError>) -> Void) {
+    func requestBooks(with urlRequest: URLRequest, completion: @escaping (Result<[BookEntity], NetworkError>) -> Void) {
         let task = self.urlSession.dataTask(with: urlRequest) { (data, response, error) in
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
@@ -28,7 +28,7 @@ class NetworkManager: NetworkManagerType {
                 return }
             
             do {
-                let books = try JSONDecoder().decode(NetworkResponse<Book>.self, from: data)
+                let books = try JSONDecoder().decode(NetworkResponse<BookEntity>.self, from: data)
                 completion(.success(books.items))
             } catch {
                 completion(.failure(NetworkError.decodeError))

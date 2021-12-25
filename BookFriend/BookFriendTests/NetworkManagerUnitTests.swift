@@ -78,7 +78,7 @@ class NetworkManagerUnitTests: XCTestCase {
     
     func testURLSession_WhenPerformDataTask_SuccessResponse() {
         let exp = expectation(description: "waiting urlsession")
-        let sampleBook = Book(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description")
+        let sampleBook = BookEntity(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description")
         self.networkManager = NetworkManager(urlSession: StubURLSession(makeRequestFail: true, failStatusCode: false))
         self.networkManager.requestBooks(with: urlRequest) { result in
             switch result {

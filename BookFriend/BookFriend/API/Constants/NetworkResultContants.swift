@@ -8,7 +8,7 @@
 import Foundation
 
 enum NetworkSuccess {
-    case data([Book])
+    case data([BookEntity])
 }
 
 enum NetworkError: Error {

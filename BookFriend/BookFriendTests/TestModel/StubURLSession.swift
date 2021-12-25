@@ -42,10 +42,10 @@ class StubURLSession: URLSessionType {
         let sessionDataTask = StubURLSessionDataTask()
         
         let sampleBook = [
-            Book(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description"),
-            Book(title: "title2", link: URL(string: ""), image: URL(string: ""), author: "author2", description: "description2")
+            BookEntity(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description"),
+            BookEntity(title: "title2", link: URL(string: ""), image: URL(string: ""), author: "author2", description: "description2")
         ]
-        let response = NetworkResponse<Book>(items: sampleBook)
+        let response = NetworkResponse<BookEntity>(items: sampleBook)
         let sampleData = try? JSONEncoder().encode(response)
         
         // 결과에 대한 특정한 상태 값만 배출

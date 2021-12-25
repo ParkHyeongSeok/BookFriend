@@ -98,7 +98,7 @@ class BookListViewController: UIViewController, StoryboardView {
         
         Observable.zip(
             tableView.rx.itemSelected,
-            tableView.rx.modelSelected(Book.self))
+            tableView.rx.modelSelected(BookEntity.self))
             .bind { [unowned self] (indexPath, book) in
                 self.tableView.deselectRow(at: indexPath, animated: false)
                 self.navigateNewPage(book: book) {
@@ -146,7 +146,7 @@ class BookListViewController: UIViewController, StoryboardView {
         
     }
     
-    func navigateNewPage(book: Book, completion: (() -> Void)? = nil) {
+    func navigateNewPage(book: BookEntity, completion: (() -> Void)? = nil) {
         guard let url = book.link else { return }
         let sv = SFSafariViewController(url: url)
         self.present(sv, animated: true, completion: completion)
