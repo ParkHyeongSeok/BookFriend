@@ -20,20 +20,16 @@ import Foundation
 protocol DAOProtocol {
     associatedtype KEY
     associatedtype VALUE
-    func create(value: VALUE) throws
+    func create(key: KEY, value: VALUE) throws
     func read(key: KEY) throws -> VALUE
     func update(key: KEY, value: VALUE) throws
     func delete(key: KEY) throws
 }
 
-protocol NetworkModel {
-    associatedtype ENTITY
-    func mapping(to entity: ENTITY)
+enum DAOError: Error {
+    case createFail(String)
+    case readFail(String)
+    case updateFail(String)
+    case deleteFail(String)
 }
-
-protocol EntityConvertible {
-    associatedtype MODEL
-    func convert() -> MODEL?
-}
-
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BookEntity: Codable {
+struct BookEntity: Codable, PersistentEntity {
     var title: String
     var link: URL?
     var image: URL?
@@ -25,9 +25,9 @@ extension BookEntity: Equatable {
     }
 }
 
-extension BookEntity: EntityConvertible {
+extension BookEntity: DomainModelMapper {
     typealias MODEL = Book
-    func convert() -> Book? {
+    func convert() -> Book {
         let book = Book()
         book.mapping(to: self)
         return book

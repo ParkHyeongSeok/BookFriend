@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Book: NetworkModel {
+class Book: DomainModel {
     typealias ENTITY = BookEntity
     
     private(set) var title: String = ""
