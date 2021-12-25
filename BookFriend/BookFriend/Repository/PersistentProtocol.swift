@@ -26,13 +26,14 @@ protocol DAOProtocol {
     func delete(key: KEY) throws
 }
 
-protocol NetworkEntity {
-    associatedtype MODEL
-    func mapping(to model: MODEL)
+protocol NetworkModel {
+    associatedtype ENTITY
+    func mapping(to entity: ENTITY)
 }
 
 protocol EntityConvertible {
     associatedtype MODEL
-    associatedtype ENTITY
-    func convert(_ entity: ENTITY) -> MODEL?
+    func convert() -> MODEL?
 }
+
+

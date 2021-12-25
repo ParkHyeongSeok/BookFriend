@@ -7,26 +7,29 @@
 
 import Foundation
 
-class BookEntity: Codable, NetworkEntity {
-    typealias MODEL = Book
+class BookEntity: Codable {
+    var title: String
+    var link: URL?
+    var image: URL?
+    var author: String?
+    var description: String
     
-    private(set) var title: String
-    private(set) var link: URL?
-    private(set) var image: URL?
-    private(set) var author: String?
-    private(set) var description: String
-    
-    func mapping(to model: MODEL) {
-        self.title = model.title
-        self.link = model.link
-        self.image = model.image
-        self.author = model.author
-        self.description = model.description
+    enum CodingKeys: String, CodingKey {
+        case title, link, image, author, description
     }
 }
 
 extension BookEntity: Equatable {
     static func == (rhs: BookEntity, lhs: BookEntity) -> Bool {
         return rhs.title == lhs.title
+    }
+}
+
+extension BookEntity: EntityConvertible {
+    typealias MODEL = Book
+    func convert() -> Book? {
+        let book = Book()
+        book.mapping(to: self)
+        return book
     }
 }
