@@ -22,7 +22,7 @@ class BookListReactor: Reactor {
 
     enum Mutation {
         case setLoading(Bool)
-        case setBooks([Book])
+        case setBooks([BookEntity])
         case setQueryList(String)
         case setQuery(String)
         case deleteQuery(String)
@@ -30,7 +30,7 @@ class BookListReactor: Reactor {
     }
     
     struct State {
-        var books = [Book]()
+        var books = [BookEntity]()
         var queryList = ["love"]
         var isLoading = false
         var query = ""
@@ -92,7 +92,7 @@ class BookListReactor: Reactor {
         return newState
     }
     
-    private func search(query: String) -> Observable<[Book]> {
+    private func search(query: String) -> Observable<[BookEntity]> {
         return Observable.create { (observer) -> Disposable in
             
             guard let urlRequest = self.manager._composedURLRequest(query: query, httpMethod: .get) else {

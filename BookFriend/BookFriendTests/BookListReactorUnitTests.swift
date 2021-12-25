@@ -56,8 +56,8 @@ class BookListReactorUnitTests: XCTestCase {
     // 2) books: [Book]
     func testReactorState_books() {
         let sampleBook = [
-            Book(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description"),
-            Book(title: "title2", link: URL(string: ""), image: URL(string: ""), author: "author2", description: "description2")
+            BookEntity(title: "title", link: URL(string: ""), image: URL(string: ""), author: "author", description: "description"),
+            BookEntity(title: "title2", link: URL(string: ""), image: URL(string: ""), author: "author2", description: "description2")
         ]
         reactor.stub.state.value = BookListReactor.State(books: sampleBook, queryList: [], isLoading: false, query: "")
         let tableViewCell = bookVC.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! BookListTableViewCell

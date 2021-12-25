@@ -8,6 +8,6 @@
 import Foundation
 
 protocol NetworkManagerType {
-    func requestBooks(with urlRequest: URLRequest, completion: @escaping (Result<[Book], NetworkError>) -> Void)
+    func requestBooks(with urlRequest: URLRequest, completion: @escaping (Result<[BookEntity], NetworkError>) -> Void)
     func _composedURLRequest(query: String, httpMethod: HTTPMETHOD?) -> URLRequest?
 }

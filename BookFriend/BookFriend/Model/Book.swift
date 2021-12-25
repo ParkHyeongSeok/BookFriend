@@ -8,11 +8,17 @@
 import Foundation
 
 struct Book: Codable {
+    typealias MODEL = Book
+
     let title: String
     let link: URL?
     let image: URL?
     let author: String?
     let description: String
+    
+    func mapping(to model: Book) {
+        <#code#>
+    }
 }
 
 extension Book: Equatable {
@@ -20,3 +26,5 @@ extension Book: Equatable {
         return rhs.title == lhs.title
     }
 }
+
+extension Book: 

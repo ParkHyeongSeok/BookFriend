@@ -21,7 +21,7 @@ class BookListTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func updateUI(book: Book) {
+    func updateUI(book: BookEntity) {
         bookImage.kf.setImage(with: book.image)
         bookTitle.text = book.title.htmlEscaped
         let authorFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)!
