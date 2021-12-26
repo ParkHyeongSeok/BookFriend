@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol BookServiceType: DomainProtocol where VALUE == Book {
+    var memoryBookDB: [Book] { get set }
+}
