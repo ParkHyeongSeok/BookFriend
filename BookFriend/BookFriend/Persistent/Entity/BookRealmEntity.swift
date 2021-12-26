@@ -25,6 +25,10 @@ extension BookRealmEntity: PersistentEntity {
         self.author = model.author
         self.descriptions = model.description
     }
+    
+    func getModel() -> Book {
+        return Book.init(title: title, link: URL(string: link ?? ""), image: URL(string: image ?? ""), author: author, description: descriptions)
+    }
 }
 
 extension BookRealmEntity: DomainModelMapper {

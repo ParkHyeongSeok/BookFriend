@@ -14,6 +14,7 @@ class CommonRealmDAO<VALUE: PersistentEntityMapper>: DAOProtocol where VALUE.ENT
     typealias VALUE = VALUE
     
     private var realm: Realm!
+    
     init() {
         guard let realm = try? Realm(configuration: self.getRealmConfiguration(), queue: nil) else {
             fatalError("initialize failed.")
@@ -43,10 +44,10 @@ class CommonRealmDAO<VALUE: PersistentEntityMapper>: DAOProtocol where VALUE.ENT
     
     func read(key: KEY) throws -> VALUE {
         let value: VALUE.ENTITY = try read(key: key)
-        if let result = value as? VALUE {
+        if let result = value.getModel() as? VALUE {
             return result
         }
-        
+        throw DAOError.readFail("Realm didn't find Value of the key")
     }
     
     private func read(key: KEY) throws -> VALUE.ENTITY {

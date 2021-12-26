@@ -17,6 +17,21 @@ class Book: DomainModel {
     private(set) var author: String? = nil
     private(set) var description: String = ""
     
+    convenience init(
+        title: String,
+        link: URL?,
+        image: URL?,
+        author: String?,
+        description: String
+    ) {
+        self.init()
+        self.title = title
+        self.link = link
+        self.image = image
+        self.author = author
+        self.description = description
+    }
+    
     /// Mapping for Networking Entity
     func mapping(to entity: BookEntity) {
         self.title = entity.title
