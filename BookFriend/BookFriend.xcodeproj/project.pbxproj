@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,17 +12,17 @@
 		039C4FDA2769DE00009C0715 /* BookListReactorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039C4FD92769DE00009C0715 /* BookListReactorUnitTests.swift */; };
 		039C4FDF2769E1E2009C0715 /* StubURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039C4FDE2769E1E2009C0715 /* StubURLSession.swift */; };
 		039C4FE1276A1253009C0715 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039C4FE0276A1253009C0715 /* UIViewController+Extension.swift */; };
-		03EB6542277704E000EE2C10 /* CommonUserDefaultsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB6541277704E000EE2C10 /* CommonUserDefaultsDAO.swift */; };
 		03EB65452777055700EE2C10 /* PersistentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65442777055700EE2C10 /* PersistentProtocol.swift */; };
 		03EB65472777123F00EE2C10 /* BookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65462777123F00EE2C10 /* BookEntity.swift */; };
 		03EB654C27776B8A00EE2C10 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB654B27776B8A00EE2C10 /* BookService.swift */; };
 		03EB654E27776BA800EE2C10 /* DomainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB654D27776BA800EE2C10 /* DomainProtocol.swift */; };
 		03EB655027776BCF00EE2C10 /* BookServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB654F27776BCF00EE2C10 /* BookServiceType.swift */; };
-		03EB655227776C0200EE2C10 /* AlamofireBookDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB655127776C0200EE2C10 /* AlamofireBookDAO.swift */; };
 		03EB655427776CBF00EE2C10 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB655327776CBF00EE2C10 /* ModelProtocol.swift */; };
 		03EB655727776DC200EE2C10 /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB655627776DC200EE2C10 /* EntityProtocol.swift */; };
-		03EB6559277779E400EE2C10 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB6558277779E400EE2C10 /* UserInformation.swift */; };
-		03EB655D27777A4D00EE2C10 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB655C27777A4D00EE2C10 /* UserService.swift */; };
+		03EB65672777FE5F00EE2C10 /* CommonRealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65662777FE5F00EE2C10 /* CommonRealmDAO.swift */; };
+		03EB658627780BE100EE2C10 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 03EB658527780BE100EE2C10 /* Realm */; };
+		03EB658827780BE100EE2C10 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 03EB658727780BE100EE2C10 /* RealmSwift */; };
+		03EB658A2778134400EE2C10 /* BookRealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65892778134400EE2C10 /* BookRealmEntity.swift */; };
 		24C28207275C88D60091A63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28206275C88D60091A63A /* AppDelegate.swift */; };
 		24C28209275C88D60091A63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28208275C88D60091A63A /* SceneDelegate.swift */; };
 		24C2820B275C88D60091A63A /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C2820A275C88D60091A63A /* BookListViewController.swift */; };
@@ -61,17 +61,19 @@
 		039C4FDE2769E1E2009C0715 /* StubURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubURLSession.swift; sourceTree = "<group>"; };
 		039C4FE0276A1253009C0715 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		039C4FE2276A19B8009C0715 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		03EB6541277704E000EE2C10 /* CommonUserDefaultsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserDefaultsDAO.swift; sourceTree = "<group>"; };
 		03EB65442777055700EE2C10 /* PersistentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentProtocol.swift; sourceTree = "<group>"; };
 		03EB65462777123F00EE2C10 /* BookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntity.swift; sourceTree = "<group>"; };
 		03EB654B27776B8A00EE2C10 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
 		03EB654D27776BA800EE2C10 /* DomainProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainProtocol.swift; sourceTree = "<group>"; };
 		03EB654F27776BCF00EE2C10 /* BookServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceType.swift; sourceTree = "<group>"; };
-		03EB655127776C0200EE2C10 /* AlamofireBookDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireBookDAO.swift; sourceTree = "<group>"; };
 		03EB655327776CBF00EE2C10 /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
 		03EB655627776DC200EE2C10 /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
-		03EB6558277779E400EE2C10 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
-		03EB655C27777A4D00EE2C10 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		03EB655E2777FCF100EE2C10 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/Mac/RealmSwift.framework; sourceTree = "<group>"; };
+		03EB655F2777FCF100EE2C10 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/Mac/Realm.framework; sourceTree = "<group>"; };
+		03EB65662777FE5F00EE2C10 /* CommonRealmDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRealmDAO.swift; sourceTree = "<group>"; };
+		03EB65682778005300EE2C10 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		03EB65692778005300EE2C10 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		03EB65892778134400EE2C10 /* BookRealmEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRealmEntity.swift; sourceTree = "<group>"; };
 		12EF6E342D40B5B6AE40C47A /* Pods-BookFriend-BookFriendUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookFriend-BookFriendUITests.release.xcconfig"; path = "Target Support Files/Pods-BookFriend-BookFriendUITests/Pods-BookFriend-BookFriendUITests.release.xcconfig"; sourceTree = "<group>"; };
 		24C28203275C88D60091A63A /* BookFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C28206275C88D60091A63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EB658827780BE100EE2C10 /* RealmSwift in Frameworks */,
+				03EB658627780BE100EE2C10 /* Realm in Frameworks */,
 				9BA13EEE48C77FA690CD6DC4 /* Pods_BookFriend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,7 +149,7 @@
 			children = (
 				03EB654827776B2300EE2C10 /* Entity */,
 				03EB65442777055700EE2C10 /* PersistentProtocol.swift */,
-				03EB6541277704E000EE2C10 /* CommonUserDefaultsDAO.swift */,
+				03EB65662777FE5F00EE2C10 /* CommonRealmDAO.swift */,
 			);
 			path = Persistent;
 			sourceTree = "<group>";
@@ -154,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				03EB655627776DC200EE2C10 /* EntityProtocol.swift */,
-				03EB6558277779E400EE2C10 /* UserInformation.swift */,
 				03EB65462777123F00EE2C10 /* BookEntity.swift */,
+				03EB65892778134400EE2C10 /* BookRealmEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -167,7 +171,6 @@
 				03EB654D27776BA800EE2C10 /* DomainProtocol.swift */,
 				03EB654F27776BCF00EE2C10 /* BookServiceType.swift */,
 				03EB654B27776B8A00EE2C10 /* BookService.swift */,
-				03EB655C27777A4D00EE2C10 /* UserService.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -221,7 +224,6 @@
 				24C28287275DB91F0091A63A /* API */,
 				24C28256275C8E630091A63A /* Manager */,
 				03EB6543277704EC00EE2C10 /* Persistent */,
-				03EB655127776C0200EE2C10 /* AlamofireBookDAO.swift */,
 				03EB654927776B3800EE2C10 /* Domain */,
 				03EB654A27776B5D00EE2C10 /* Presenter */,
 				24C2820F275C88E00091A63A /* Assets.xcassets */,
@@ -299,6 +301,10 @@
 		87F201A37551A14ED3BC0E70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03EB655F2777FCF100EE2C10 /* Realm.framework */,
+				03EB655E2777FCF100EE2C10 /* RealmSwift.framework */,
+				03EB65682778005300EE2C10 /* Realm.framework */,
+				03EB65692778005300EE2C10 /* RealmSwift.framework */,
 				039C4FE2276A19B8009C0715 /* Nimble.framework */,
 				6A123C89EE0464941450B1EA /* Pods_BookFriend.framework */,
 				3C8C457AEA4BAF415E167A34 /* Pods_BookFriendTests.framework */,
@@ -337,6 +343,10 @@
 			dependencies = (
 			);
 			name = BookFriend;
+			packageProductDependencies = (
+				03EB658527780BE100EE2C10 /* Realm */,
+				03EB658727780BE100EE2C10 /* RealmSwift */,
+			);
 			productName = BookFriend;
 			productReference = 24C28203275C88D60091A63A /* BookFriend.app */;
 			productType = "com.apple.product-type.application";
@@ -389,6 +399,9 @@
 				Base,
 			);
 			mainGroup = 24C281FA275C88D50091A63A;
+			packageReferences = (
+				03EB658427780BE100EE2C10 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 24C28204275C88D60091A63A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -506,7 +519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C282FA275F332C0091A63A /* QueryCollectionViewCell.swift in Sources */,
-				03EB655D27777A4D00EE2C10 /* UserService.swift in Sources */,
 				24C2829A275DBA9D0091A63A /* NetworkManagerType.swift in Sources */,
 				03EB654E27776BA800EE2C10 /* DomainProtocol.swift in Sources */,
 				24C2824A275C8D2D0091A63A /* Book.swift in Sources */,
@@ -515,12 +527,9 @@
 				24C282E3275DE7000091A63A /* BookListTableViewCell.swift in Sources */,
 				24C2820B275C88D60091A63A /* BookListViewController.swift in Sources */,
 				24C28252275C8E5E0091A63A /* NetworkManager.swift in Sources */,
-				03EB655227776C0200EE2C10 /* AlamofireBookDAO.swift in Sources */,
 				03EB65472777123F00EE2C10 /* BookEntity.swift in Sources */,
 				24C2826F275CED920091A63A /* NetworkResultContants.swift in Sources */,
 				24C28207275C88D60091A63A /* AppDelegate.swift in Sources */,
-				03EB6559277779E400EE2C10 /* UserInformation.swift in Sources */,
-				03EB6542277704E000EE2C10 /* CommonUserDefaultsDAO.swift in Sources */,
 				24C28209275C88D60091A63A /* SceneDelegate.swift in Sources */,
 				03EB655027776BCF00EE2C10 /* BookServiceType.swift in Sources */,
 				24C28278275CEE6F0091A63A /* NetworkModel.swift in Sources */,
@@ -528,8 +537,10 @@
 				24C2831027609B030091A63A /* URLSessionType.swift in Sources */,
 				03EB655727776DC200EE2C10 /* EntityProtocol.swift in Sources */,
 				03EB655427776CBF00EE2C10 /* ModelProtocol.swift in Sources */,
+				03EB65672777FE5F00EE2C10 /* CommonRealmDAO.swift in Sources */,
 				03EB65452777055700EE2C10 /* PersistentProtocol.swift in Sources */,
 				24C28292275DBA1E0091A63A /* BookListReactor.swift in Sources */,
+				03EB658A2778134400EE2C10 /* BookRealmEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,8 +708,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MBAJ2NCPU9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BookFriend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -706,8 +723,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperPaul.BookFriend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -717,8 +736,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MBAJ2NCPU9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BookFriend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -726,8 +751,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperPaul.BookFriend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -811,6 +838,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		03EB658427780BE100EE2C10 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		03EB658527780BE100EE2C10 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03EB658427780BE100EE2C10 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		03EB658727780BE100EE2C10 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03EB658427780BE100EE2C10 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 24C281FB275C88D50091A63A /* Project object */;
 }

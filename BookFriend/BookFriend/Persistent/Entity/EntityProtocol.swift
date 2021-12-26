@@ -8,7 +8,8 @@
 import Foundation
 
 protocol PersistentEntity {
-    
+    associatedtype MODEL
+    func mapping(to model: MODEL)
 }
 
 protocol DomainModelMapper {

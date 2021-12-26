@@ -6,11 +6,11 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol DomainProtocol {
     associatedtype KEY
     associatedtype VALUE
     func create()
     func getAll()
-    func
 }

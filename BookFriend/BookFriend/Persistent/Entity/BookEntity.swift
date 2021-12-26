@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookEntity: Codable, PersistentEntity {
+struct BookEntity: Codable {
     var title: String
     var link: URL?
     var image: URL?
