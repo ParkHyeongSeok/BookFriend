@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol NetworkManagerType {
     func requestBooks(with urlRequest: URLRequest, completion: @escaping (Result<[BookEntity], NetworkError>) -> Void)

@@ -8,8 +8,7 @@
 import Foundation
 import RealmSwift
 
-class CommonRealmDAO<VALUE: PersistentEntityMapper>: DAOProtocol where VALUE.ENTITY: Object, VALUE.ENTITY: PersistentEntity {
-    
+class CommonRealmDAO<VALUE: BookRealmDTOMapper>: DAOProtocol where VALUE: Object, VALUE.ENTITY: EntityType {
     typealias KEY = String
     typealias VALUE = VALUE
     
@@ -35,7 +34,7 @@ class CommonRealmDAO<VALUE: PersistentEntityMapper>: DAOProtocol where VALUE.ENT
     func create(key: KEY, value: VALUE) throws {
         do {
             try realm.write {
-                realm.add(value.convert())
+                realm.add(value)
             }
         } catch let error as NSError {
             throw DAOError.createFail(error.description)
@@ -51,8 +50,8 @@ class CommonRealmDAO<VALUE: PersistentEntityMapper>: DAOProtocol where VALUE.ENT
     }
     
     private func read(key: KEY) throws -> VALUE.ENTITY {
-        if let result = realm.object(ofType: VALUE.ENTITY.self, forPrimaryKey: key) {
-            return result
+        if let result = realm.object(ofType: VALUE.self, forPrimaryKey: key) {
+            return result.m
         }
         throw DAOError.readFail("not found \(key)")
     }
