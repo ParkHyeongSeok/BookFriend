@@ -1,5 +1,5 @@
 //
-//  BookRealmEntity.swift
+//  BookRealmDTO.swift
 //  BookFriend
 //
 //  Created by 박형석 on 2021/12/26.
@@ -8,8 +8,7 @@
 import Foundation
 import RealmSwift
 
-class BookRealmEntity: Object {
-    typealias MODEL = Book
+class BookRealmDTO: Object {
     @Persisted var title: String = ""
     @Persisted var link: String? = nil
     @Persisted var image: String? = nil
@@ -17,7 +16,7 @@ class BookRealmEntity: Object {
     @Persisted var descriptions: String = ""
 }
 
-extension BookRealmEntity: PersistentEntity {
+extension BookRealmDTO: PersistentEntity {
     func mapping(to model: Book) {
         self.title = model.title
         self.link = model.link?.absoluteString
@@ -31,7 +30,7 @@ extension BookRealmEntity: PersistentEntity {
     }
 }
 
-extension BookRealmEntity: DomainModelMapper {
+extension BookRealmDTO: DomainModelMapper {
     func convert() -> Book {
         let book = Book()
         book.mapping(to: self)

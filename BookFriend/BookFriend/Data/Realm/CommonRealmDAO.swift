@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 class CommonRealmDAO<VALUE: PersistentEntityMapper>: DAOProtocol where VALUE.ENTITY: Object, VALUE.ENTITY: PersistentEntity {
-    
     typealias KEY = String
     typealias VALUE = VALUE
     
