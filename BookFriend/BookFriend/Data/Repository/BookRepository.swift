@@ -21,15 +21,33 @@ class BookRepository: BookRepositoryProtocol {
     }
     
     func save(book: Book, completion: @escaping (Bool) -> Void) {
-        
+        do {
+            let bookRealmDTO = self.mapping(book)
+            try self.realmDAO.create(value: bookRealmDTO)
+            completion(true)
+        } catch {
+            completion(false)
+        }
     }
     
     func delete(book: Book, completion: @escaping (Bool) -> Void) {
-        
+        do {
+            let bookRealmDTO = self.mapping(book)
+            try self.realmDAO.delete(key: bookRealmDTO.title)
+            completion(true)
+        } catch {
+            completion(false)
+        }
     }
     
     func search(with query: BookQuery, completion: @escaping BookResult) {
-        
+        do {
+            let bookQueryRealmDTO = BookQueryRealmDTO(query: query.query)
+            let result = try realmDAO.read(key: bookQueryRealmDTO.query)
+            completion(.success(result.map { $0.toDomain() }))
+        } catch {
+            completion(.failure(error))
+        }
     }
     
     func fetch(completion: @escaping BookResult) {

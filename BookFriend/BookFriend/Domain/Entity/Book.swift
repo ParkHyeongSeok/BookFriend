@@ -7,10 +7,10 @@
 
 import Foundation
 
-class Book: Identifiable, EntityType {
+class Book: Identifiable {
     typealias Identifier = String
     enum Genre: String {
-        case novel, poet, essay, none
+        case novel, poem, essay, none
     }
     let title: Identifier
     let genre: Genre

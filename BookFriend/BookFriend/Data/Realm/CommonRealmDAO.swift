@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class CommonRealmDAO<VALUE: BookRealmDTOMapper>: DAOProtocol where VALUE: Object, VALUE.ENTITY: EntityType {
+class CommonRealmDAO<VALUE: Object>: DAOProtocol {
     typealias KEY = String
     typealias VALUE = VALUE
     
@@ -31,7 +31,7 @@ class CommonRealmDAO<VALUE: BookRealmDTOMapper>: DAOProtocol where VALUE: Object
         return config
     }
     
-    func create(key: KEY, value: VALUE) throws {
+    func create(value: VALUE) throws {
         do {
             try realm.write {
                 realm.add(value)
@@ -41,25 +41,17 @@ class CommonRealmDAO<VALUE: BookRealmDTOMapper>: DAOProtocol where VALUE: Object
         }
     }
     
-    func read(key: KEY) throws -> VALUE {
-        let value: VALUE.ENTITY = try read(key: key)
-        if let result = value.getModel() as? VALUE {
-            return result
-        }
-        throw DAOError.readFail("Realm didn't find Value of the key")
-    }
-    
-    private func read(key: KEY) throws -> VALUE.ENTITY {
-        if let result = realm.object(ofType: VALUE.self, forPrimaryKey: key) {
-            return result.m
-        }
-        throw DAOError.readFail("not found \(key)")
+    func read(key: KEY) throws -> [VALUE] {
+        return []
+//        return realm.objects(VALUE.self)
+        
+//        throw DAOError.readFail("not found \(key)")
     }
     
     func update(key: KEY, value: VALUE) throws {
         do {
             try realm.write({
-                realm.add(value.convert(), update: .modified)
+                realm.add(value, update: .modified)
             })
         } catch {
             throw DAOError.updateFail(error.localizedDescription)
@@ -69,7 +61,7 @@ class CommonRealmDAO<VALUE: BookRealmDTOMapper>: DAOProtocol where VALUE: Object
     func delete(key: KEY) throws {
         do {
             try realm.write({
-                let value: VALUE.ENTITY = try read(key: key)
+                let value: VALUE = try read(key: key)
                 realm.delete(value)
             })
         } catch {

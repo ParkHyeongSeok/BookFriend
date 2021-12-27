@@ -18,3 +18,23 @@ struct BookNetworkDTO: Codable {
     var author: String?
     var description: String
 }
+
+extension BookNetworkDTO {
+    
+    private func checkGenre(_ title: String) -> Book.Genre {
+        if title.hasPrefix("novel") {
+            return .novel
+        } else if title.hasPrefix("poem") {
+            return .poem
+        } else if title.hasPrefix("essay") {
+            return .essay
+        } else {
+            return .none
+        }
+    }
+    
+    func toDomain() -> Book {
+        let genre = self.checkGenre(title)
+        return .init(title: title, genre: genre, link: link, image: image, author: author ?? "nobody", description: description)
+    }
+}
