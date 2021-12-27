@@ -17,8 +17,4 @@ struct BookNetworkDTO: Codable {
     var image: URL?
     var author: String?
     var description: String
-    
-    func mapping() -> BookEntity {
-        
-    }
 }

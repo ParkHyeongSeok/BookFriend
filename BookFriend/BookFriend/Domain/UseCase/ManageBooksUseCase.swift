@@ -36,7 +36,6 @@ class DefaultManageBooksUseCase: ManageBooksUseCase {
             }
             return Disposables.create()
         }
-        
     }
     
     func delete(book: Book) -> Observable<Bool> {

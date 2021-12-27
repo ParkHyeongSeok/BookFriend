@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Alamofire
 
-class NetworkManager: NetworkManagerType {
+class DefaultNetworkManager: NetworkManagerType {
     
     let urlSession: URLSessionType
     
