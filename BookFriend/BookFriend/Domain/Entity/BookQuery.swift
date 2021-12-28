@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct BookQuery: Equatable, EntityType {
+struct BookQuery: Equatable {
     let query: String
 }

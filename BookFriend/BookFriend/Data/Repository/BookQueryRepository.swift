@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+class BookQueryRepository: BookQueryRepositoryProtocol {
+    
+    func fetchQueries(completion: @escaping BookQueryResult) {
+        
+    }
+    
+    func saveRecentQuery(query: BookQuery, completion: @escaping (Bool) -> Void) {
+        
+    }
+}

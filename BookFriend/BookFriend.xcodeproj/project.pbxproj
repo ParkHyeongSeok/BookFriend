@@ -29,7 +29,8 @@
 		03EB65AC2779C66B00EE2C10 /* CustomFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65AB2779C66B00EE2C10 /* CustomFramework.swift */; };
 		03EB65B02779DC4100EE2C10 /* BookQueryRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65AF2779DC4100EE2C10 /* BookQueryRepositoryProtocol.swift */; };
 		03EB65B22779ED6B00EE2C10 /* BookQueryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65B12779ED6B00EE2C10 /* BookQueryRepository.swift */; };
-		03EB65B4277A081900EE2C10 /* BookEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65B3277A081900EE2C10 /* BookEntityType.swift */; };
+		03EB65B6277A0D1A00EE2C10 /* DTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65B5277A0D1A00EE2C10 /* DTOMapper.swift */; };
+		03EB65B8277A15C400EE2C10 /* BookQueryRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB65B7277A15C400EE2C10 /* BookQueryRealmDTO.swift */; };
 		24C28207275C88D60091A63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28206275C88D60091A63A /* AppDelegate.swift */; };
 		24C28209275C88D60091A63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C28208275C88D60091A63A /* SceneDelegate.swift */; };
 		24C2820B275C88D60091A63A /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C2820A275C88D60091A63A /* BookListViewController.swift */; };
@@ -86,7 +87,8 @@
 		03EB65AB2779C66B00EE2C10 /* CustomFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFramework.swift; sourceTree = "<group>"; };
 		03EB65AF2779DC4100EE2C10 /* BookQueryRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQueryRepositoryProtocol.swift; sourceTree = "<group>"; };
 		03EB65B12779ED6B00EE2C10 /* BookQueryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQueryRepository.swift; sourceTree = "<group>"; };
-		03EB65B3277A081900EE2C10 /* BookEntityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntityType.swift; sourceTree = "<group>"; };
+		03EB65B5277A0D1A00EE2C10 /* DTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOMapper.swift; sourceTree = "<group>"; };
+		03EB65B7277A15C400EE2C10 /* BookQueryRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQueryRealmDTO.swift; sourceTree = "<group>"; };
 		12EF6E342D40B5B6AE40C47A /* Pods-BookFriend-BookFriendUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookFriend-BookFriendUITests.release.xcconfig"; path = "Target Support Files/Pods-BookFriend-BookFriendUITests/Pods-BookFriend-BookFriendUITests.release.xcconfig"; sourceTree = "<group>"; };
 		24C28203275C88D60091A63A /* BookFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C28206275C88D60091A63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		03EB659F2779B85C00EE2C10 /* RepositoryProtocol */ = {
 			isa = PBXGroup;
 			children = (
+				03EB65B5277A0D1A00EE2C10 /* DTOMapper.swift */,
 				03EB65A62779C55900EE2C10 /* BookRepositoryProtocol.swift */,
 				03EB65AF2779DC4100EE2C10 /* BookQueryRepositoryProtocol.swift */,
 			);
@@ -256,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				03EB65892778134400EE2C10 /* BookRealmDTO.swift */,
+				03EB65B7277A15C400EE2C10 /* BookQueryRealmDTO.swift */,
 			);
 			path = "RealmDTO+Mapping";
 			sourceTree = "<group>";
@@ -322,7 +326,6 @@
 		24C28248275C8D210091A63A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				03EB65B3277A081900EE2C10 /* BookEntityType.swift */,
 				24C28249275C8D2D0091A63A /* Book.swift */,
 				03EB65A02779C32900EE2C10 /* BookQuery.swift */,
 			);
@@ -595,7 +598,9 @@
 				24C282FA275F332C0091A63A /* QueryCollectionViewCell.swift in Sources */,
 				03EB65A72779C55900EE2C10 /* BookRepositoryProtocol.swift in Sources */,
 				24C2829A275DBA9D0091A63A /* NetworkManagerType.swift in Sources */,
+				03EB65B6277A0D1A00EE2C10 /* DTOMapper.swift in Sources */,
 				03EB658E2779620500EE2C10 /* AppCoordinator.swift in Sources */,
+				03EB65B8277A15C400EE2C10 /* BookQueryRealmDTO.swift in Sources */,
 				24C2824A275C8D2D0091A63A /* Book.swift in Sources */,
 				24C282F5275F27670091A63A /* String+Extension.swift in Sources */,
 				03EB65B22779ED6B00EE2C10 /* BookQueryRepository.swift in Sources */,
@@ -614,7 +619,6 @@
 				24C2831027609B030091A63A /* URLSessionType.swift in Sources */,
 				03EB65A52779C4AC00EE2C10 /* FetchBookQueriesUseCase.swift in Sources */,
 				03EB65672777FE5F00EE2C10 /* CommonRealmDAO.swift in Sources */,
-				03EB65B4277A081900EE2C10 /* BookEntityType.swift in Sources */,
 				03EB65452777055700EE2C10 /* DAOProtocol.swift in Sources */,
 				24C28292275DBA1E0091A63A /* BookListReactor.swift in Sources */,
 				03EB658A2778134400EE2C10 /* BookRealmDTO.swift in Sources */,

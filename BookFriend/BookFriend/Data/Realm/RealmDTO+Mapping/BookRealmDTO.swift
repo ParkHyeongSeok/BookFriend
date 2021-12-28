@@ -8,12 +8,6 @@
 import Foundation
 import RealmSwift
 
-protocol BookRealmDTOMapper {
-    associatedtype ENTITY
-    associatedtype DTO
-    func mapping(_ entity: ENTITY) -> DTO
-}
-
 class BookRealmDTO: Object {
     @Persisted var title: String
     @Persisted var genre: String
@@ -37,14 +31,6 @@ class BookRealmDTO: Object {
         self.image = image ?? ""
         self.author = author
         self.descriptions = descriptions
-    }
-}
-
-extension BookRealmDTO: BookRealmDTOMapper {
-    typealias ENTITY = Book
-    typealias DTO = BookRealmDTO
-    func mapping(_ entity: Book) -> BookRealmDTO {
-        return .init(title: entity.title, genre: entity.genre.rawValue, link: entity.link?.absoluteString, image: entity.image?.absoluteString, author: entity.author, descriptions: entity.description)
     }
 }
 

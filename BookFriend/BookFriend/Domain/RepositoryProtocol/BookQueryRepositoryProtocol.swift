@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BookQueryRepositoryProtocol {
+protocol BookQueryRepositoryProtocol: DTOMapper {
     typealias BookQueryResult = (Result< [BookQuery], Error>) -> Void
     func fetchQueries(completion: @escaping BookQueryResult)
     func saveRecentQuery(query: BookQuery, completion: @escaping (Bool) -> Void)
