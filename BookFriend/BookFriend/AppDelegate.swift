@@ -11,24 +11,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        
-        guard let rootViewController = window?.rootViewController as? UINavigationController else { return false }
-        guard let vc = rootViewController.viewControllers.first as? BookListViewController else { return false }
-        
-        let manager = NetworkManager(urlSession: URLSession.shared)
-        
-        vc.reactor = BookListReactor(manager: manager)
-        
-        appCoordinator = AppCoordinator()
-        appCoordinator?.start()
-        window?.makeKeyAndVisible()
-        
+        let appDependency = AppDependency(window: window!)
+        appDependency.resolve()
         return true
     }
 

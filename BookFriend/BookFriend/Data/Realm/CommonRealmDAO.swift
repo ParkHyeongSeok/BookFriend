@@ -61,7 +61,7 @@ class CommonRealmDAO<VALUE: Object>: DAOProtocol {
     func delete(key: KEY) throws {
         do {
             try realm.write({
-                let value: VALUE = try read(key: key)
+                let value: VALUE = try read(key: key).first!
                 realm.delete(value)
             })
         } catch {

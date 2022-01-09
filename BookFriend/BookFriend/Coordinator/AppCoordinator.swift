@@ -17,6 +17,13 @@ final class AppCoordinator: CoordinatorType {
     }
     
     func start() {
+        guard let rootViewController = window?.rootViewController as? UINavigationController else { return false }
+        guard let vc = rootViewController.viewControllers.first as? BookListViewController else { return false }
+        
+        let manager = NetworkManager(urlSession: URLSession.shared)
+        
+        vc.reactor = BookListReactor(manager: manager)
+        
         let newPush = UIViewController()
         navigationController?.pushViewController(newPush, animated: true)
         // newPush.start()
