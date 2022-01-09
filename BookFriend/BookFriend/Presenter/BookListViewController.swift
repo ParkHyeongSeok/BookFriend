@@ -108,10 +108,6 @@ class BookListViewController: UIViewController, StoryboardView {
             }
             .disposed(by: disposeBag)
         
-        
-        
-        
-        
         Observable.zip(
             collectionView.rx.itemSelected,
             collectionView.rx.modelSelected(String.self))

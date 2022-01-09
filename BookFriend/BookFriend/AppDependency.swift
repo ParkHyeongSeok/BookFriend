@@ -16,13 +16,14 @@ class AppDependency {
     
     init(
         window: UIWindow,
-        appCoordinator: AppCoordinator
+        appCoordinator: AppCoordinator = AppCoordinator(rootView: UINavigationController())
     ) {
         self.window = window
-        self.appCoordinator = AppCoordinator(rootView: <#T##UINavigationController#>)
+        self.appCoordinator = appCoordinator
     }
     
     func resolve() {
-        
+        appCoordinator.start()
+        window.makeKeyAndVisible()
     }
 }
