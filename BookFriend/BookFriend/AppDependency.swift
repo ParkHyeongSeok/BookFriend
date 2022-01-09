@@ -9,6 +9,20 @@ import Foundation
 import Swinject
 
 // App에 필요한 의존성들
-struct AppDependency {
+class AppDependency {
+    var window: UIWindow
+    var appCoordinator: AppCoordinator
+    let container = Container()
     
+    init(
+        window: UIWindow,
+        appCoordinator: AppCoordinator
+    ) {
+        self.window = window
+        self.appCoordinator = AppCoordinator(rootView: <#T##UINavigationController#>)
+    }
+    
+    func resolve() {
+        
+    }
 }

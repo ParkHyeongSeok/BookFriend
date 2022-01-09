@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		034371EB2768A881002DF4D9 /* TestStudyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034371EA2768A881002DF4D9 /* TestStudyExample.swift */; };
 		034371ED2768A89B002DF4D9 /* TestExampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034371EC2768A89B002DF4D9 /* TestExampleModel.swift */; };
+		036184EA278B243700F1F16B /* DataAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036184E9278B243700F1F16B /* DataAssembly.swift */; };
 		039C4FDA2769DE00009C0715 /* BookListReactorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039C4FD92769DE00009C0715 /* BookListReactorUnitTests.swift */; };
 		039C4FDF2769E1E2009C0715 /* StubURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039C4FDE2769E1E2009C0715 /* StubURLSession.swift */; };
 		039C4FE1276A1253009C0715 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039C4FE0276A1253009C0715 /* UIViewController+Extension.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		034371EA2768A881002DF4D9 /* TestStudyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStudyExample.swift; sourceTree = "<group>"; };
 		034371EC2768A89B002DF4D9 /* TestExampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExampleModel.swift; sourceTree = "<group>"; };
+		036184E9278B243700F1F16B /* DataAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssembly.swift; sourceTree = "<group>"; };
 		039C4FD92769DE00009C0715 /* BookListReactorUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListReactorUnitTests.swift; sourceTree = "<group>"; };
 		039C4FDE2769E1E2009C0715 /* StubURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubURLSession.swift; sourceTree = "<group>"; };
 		039C4FE0276A1253009C0715 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		03EB6543277704EC00EE2C10 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				036184E9278B243700F1F16B /* DataAssembly.swift */,
 				03EB65982779895D00EE2C10 /* Repository */,
 				03EB65972779833D00EE2C10 /* Realm */,
 				03EB65962779832A00EE2C10 /* Network */,
@@ -596,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C282FA275F332C0091A63A /* QueryCollectionViewCell.swift in Sources */,
+				036184EA278B243700F1F16B /* DataAssembly.swift in Sources */,
 				03EB65A72779C55900EE2C10 /* BookRepositoryProtocol.swift in Sources */,
 				24C2829A275DBA9D0091A63A /* NetworkManagerType.swift in Sources */,
 				03EB65B6277A0D1A00EE2C10 /* DTOMapper.swift in Sources */,
